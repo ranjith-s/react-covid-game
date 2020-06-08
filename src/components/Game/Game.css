@@ -1,0 +1,46 @@
+.username {
+  text-transform: capitalize;
+}
+#cartoon {
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  background-size: 500px;
+  background-repeat: no-repeat;
+}
+
+#corona-meter {
+  width: 200px;
+  border: 2px solid #000;
+  margin: 0 auto 20px auto;
+}
+
+#corona-meter div {
+  height: 20px;
+  background: crimson;
+}
+.corona-meter-label {
+  width: 200px;
+  display: block;
+  margin: 10px auto 10px auto;
+}
+
+#controls {
+  width: 150px;
+  margin: 0 auto;
+}
+#controls button {
+  width: 150px;
+}
+.game-banner {
+  text-align: center;
+}
+.victory-message {
+  text-align: center;
+  color: green;
+  font-weight: 700;
+  font-size: large;
+}
+.signout-label {
+  float: right;
+}
