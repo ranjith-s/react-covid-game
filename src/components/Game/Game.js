@@ -9,26 +9,26 @@ class Welcome extends React.Component {
       ended: false,
       coronaMap: {
         50: {
-          image: "https://i.ibb.co/0DSgDcW/HandWash.jpg",
+          image: "https://i.ibb.co/42z1x41/HandWash.jpg",
           action: "Wash your Hands Often",
         },
         40: {
-          image: "https://i.ibb.co/7KcDD64/Social-Distancing.jpg",
+          image: "https://i.ibb.co/0BbNjQG/Social-Distancing-People-Keep-Distance-in-Public-Place-Protect-from-Covid-19-Outbreak-Spreading-Char.jpg",
           action: "Maintain Social Distancing",
         },
         30: {
-          image: "https://i.ibb.co/Fh9RTQV/WearMask.jpg",
+          image: "https://i.ibb.co/48BFyVL/WearMask.jpg",
           action: "Wear Masks",
         },
         20: {
-          image: "https://i.ibb.co/F4PQ7m7/StayHome.jpg",
+          image: "https://i.ibb.co/x2BXDMq/Stay-at-Home-social-media-banner-Self-quarantine-coronavirus-prevention-self-isolation-epidemic-covi.jpg",
           action: "Avoid Unnecessary commuting",
         },
         10: {
-          image: "https://i.ibb.co/HPxjMjt/Increase-Immunity.jpg",
+          image: "https://i.ibb.co/ZXmYH0S/Antibiotic-fight-bacteria-and-virus-Strong-antibiotics-pills-with-shield-protect-from-bacterias-medi.jpg",
           action: "Eat Immunity High Food",
         },
-        0: { image: "https://i.ibb.co/Jyw9j36/RIPCorona.jpg", action: "" },
+        0: { image: "https://i.ibb.co/VJVtLsh/RIPCorona.jpg", action: "" },
       },
     };
   }
