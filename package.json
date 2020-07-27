@@ -20,11 +20,12 @@
     "global": "^4.4.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5",
     "serve": "^11.3.2"
   },
   "scripts": {
     "start": "webpack",
-    "dev-server":"webpack-dev-server"
-
+    "dev-server": "webpack-dev-server"
   }
 }

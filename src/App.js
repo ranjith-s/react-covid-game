@@ -4,42 +4,36 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Game from "./components/Game/Game";
 import "./App.css";
+import { connect } from "react-redux";
+import * as ACTIONS from "./data/actions/actions";
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      signedIn: false,
       loggedInFooter: "",
       loggedOutFooter: "Login to continue",
       HeaderText: "React App",
     };
   }
   signIn = (username) => {
-    this.setState({
-      username,
-      signedIn: true,
-    });
+    this.props.login(username);
   };
   logout = () => {
-    this.setState({
-      username: "",
-      signedIn: false,
-    });
+    this.props.logout();
   };
   render() {
     return (
       <div id="app">
         <Header text={this.state.HeaderText} />
-        {this.state.signedIn ? (
-          <Game user={this.state.username} logout={this.logout} />
+        {this.props.signedIn ? (
+          <Game user={this.props.username} logout={this.logout} />
         ) : (
           <Login title="Enter your credentials" setSignedIn={this.signIn} />
         )}
         <Footer
           text={
-            this.state.signedIn
+            this.props.signedIn
               ? this.state.loggedInFooter
               : this.state.loggedOutFooter
           }
@@ -48,3 +42,19 @@ export default class App extends React.Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    signedIn: state.auth_reducer.is_authenticated,
+    username: state.auth_reducer.username,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    login: (username) => dispatch(ACTIONS.login(username)),
+    logout: () => dispatch(ACTIONS.logout()),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

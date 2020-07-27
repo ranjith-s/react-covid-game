@@ -1,12 +1,12 @@
 import React from "react";
 import "./Game.css";
-
-class Welcome extends React.Component {
+import { connect } from "react-redux";
+import * as ACTIONS from "../../data/actions/actions";
+class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       corona: 50,
-      ended: false,
       coronaMap: {
         50: {
           image: "https://i.ibb.co/42z1x41/HandWash.jpg",
@@ -36,19 +36,14 @@ class Welcome extends React.Component {
     };
   }
   prevent = () => {
-    let corona = this.state.corona - 10;
-    if (corona <= 0) {
-      this.setState({ corona, ended: true });
-    } else {
-      this.setState({ corona });
-    }
+    this.props.prevent();
   };
   restart = () => {
-    this.setState({ corona: 50, ended: false });
+    this.props.reset();
   };
 
   render() {
-    var imagePath = this.state.coronaMap[this.state.corona].image;
+    var imagePath = this.state.coronaMap[this.props.corona].image;
     return (
       <div>
         {/* Welcome Message */}
@@ -83,7 +78,7 @@ class Welcome extends React.Component {
 
         {/* Victory Message */}
 
-        {this.state.corona < 10 && (
+        {this.props.corona < 10 && (
           <p className="victory-message">
             You did it!
             <span role="img" aria-label="boquet">
@@ -102,15 +97,15 @@ class Welcome extends React.Component {
         <p className="corona-meter-label">Corona severity Meter</p>
 
         <div id="corona-meter">
-          <div style={{ width: this.state.corona * 2 + "%" }}></div>
+          <div style={{ width: this.props.corona * 2 + "%" }}></div>
         </div>
 
         {/* Game Controls */}
 
         <div id="controls">
-          {!this.state.ended && (
+          {!this.props.gameOver && (
             <button onClick={this.prevent}>
-              {this.state.coronaMap[this.state.corona].action}
+              {this.state.coronaMap[this.props.corona].action}
             </button>
           )}
           <button onClick={this.restart}>Restart</button>
@@ -119,4 +114,19 @@ class Welcome extends React.Component {
     );
   }
 }
-export default Welcome;
+
+function mapStateToProps(state) {
+  return {
+    corona: state.game_reducer.corona,
+    gameOver: state.game_reducer.gameOver,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    prevent: () => dispatch(ACTIONS.prevent()),
+    reset: () => dispatch(ACTIONS.reset()),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Game);
