@@ -13,7 +13,8 @@ class Welcome extends React.Component {
           action: "Wash your Hands Often",
         },
         40: {
-          image: "https://i.ibb.co/0BbNjQG/Social-Distancing-People-Keep-Distance-in-Public-Place-Protect-from-Covid-19-Outbreak-Spreading-Char.jpg",
+          image:
+            "https://i.ibb.co/0BbNjQG/Social-Distancing-People-Keep-Distance-in-Public-Place-Protect-from-Covid-19-Outbreak-Spreading-Char.jpg",
           action: "Maintain Social Distancing",
         },
         30: {
@@ -21,11 +22,13 @@ class Welcome extends React.Component {
           action: "Wear Masks",
         },
         20: {
-          image: "https://i.ibb.co/x2BXDMq/Stay-at-Home-social-media-banner-Self-quarantine-coronavirus-prevention-self-isolation-epidemic-covi.jpg",
+          image:
+            "https://i.ibb.co/x2BXDMq/Stay-at-Home-social-media-banner-Self-quarantine-coronavirus-prevention-self-isolation-epidemic-covi.jpg",
           action: "Avoid Unnecessary commuting",
         },
         10: {
-          image: "https://i.ibb.co/ZXmYH0S/Antibiotic-fight-bacteria-and-virus-Strong-antibiotics-pills-with-shield-protect-from-bacterias-medi.jpg",
+          image:
+            "https://i.ibb.co/ZXmYH0S/Antibiotic-fight-bacteria-and-virus-Strong-antibiotics-pills-with-shield-protect-from-bacterias-medi.jpg",
           action: "Eat Immunity High Food",
         },
         0: { image: "https://i.ibb.co/VJVtLsh/RIPCorona.jpg", action: "" },
@@ -58,10 +61,16 @@ class Welcome extends React.Component {
 
         {/* Game Banner */}
 
-        <a href="/" onClick={this.props.logout} className="signout-label">
+        <p onClick={this.props.logout} className="signout-label">
           Sign out
-        </a>
-        <p className="game-banner">Let's Fight⚔️ the Covid</p>
+        </p>
+        <p className="game-banner">
+          Let's Fight
+          <span role="img" aria-label="boquet">
+            ⚔️
+          </span>{" "}
+          the Covid
+        </p>
 
         {/* Covid Cartoon */}
 
@@ -76,9 +85,15 @@ class Welcome extends React.Component {
 
         {this.state.corona < 10 && (
           <p className="victory-message">
-            You did it!🙌🏻🎉
+            You did it!
+            <span role="img" aria-label="boquet">
+              🙌🏻🎉
+            </span>
             <strong className="username">{this.props.user}</strong> Saved the
-            World again 🌎🦸
+            World again{" "}
+            <span role="img" aria-label="boquet">
+              🌎🦸
+            </span>
           </p>
         )}
 

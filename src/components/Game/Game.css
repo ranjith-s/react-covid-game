@@ -43,4 +43,8 @@
 }
 .signout-label {
   float: right;
+  margin: 0;
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
 }

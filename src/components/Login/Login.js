@@ -17,9 +17,12 @@ class Login extends React.Component {
       <div id="login-container">
         <h2>{this.props.title}</h2>
 
-        <p className="errorMsg">
-          {this.state.showInvalidMsg && <h5>Invalid Credentials!</h5>}
-        </p>
+        {this.state.showInvalidMsg && (
+          <div className="errorMsg">
+            {" "}
+            <h5>Invalid Credentials!</h5>{" "}
+          </div>
+        )}
 
         <LoginForm
           buttonName="Login"
