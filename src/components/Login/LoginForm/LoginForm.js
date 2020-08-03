@@ -51,8 +51,12 @@ class LoginForm extends React.Component {
           inputType="password"
           parentFunction={this.setPassword}
         />
-        <button className="loginButton" onClick={this.clickHandler}>
-          {this.props.buttonName}
+        <button
+          className="loginButton"
+          onClick={this.clickHandler}
+          disabled={this.props.loginLoading}
+        >
+          {this.props.loginLoading ? "Logging in..." : this.props.buttonName}
         </button>
       </div>
     );

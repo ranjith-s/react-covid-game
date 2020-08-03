@@ -28,6 +28,7 @@ class Login extends React.Component {
           buttonName="Login"
           setSignedIn={this.props.setSignedIn}
           isLoginAttemptSuccess={this.isLoginAttemptSuccess}
+          loginLoading={this.props.loginLoading}
         />
       </div>
     );

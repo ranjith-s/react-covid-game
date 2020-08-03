@@ -64,7 +64,9 @@ class Game extends React.Component {
           <span role="img" aria-label="boquet">
             ⚔️
           </span>{" "}
-          the Covid
+          the Covid! <br />
+          Stats - (Total : {this.props.stats.total} Recovered :{" "}
+          {this.props.stats.recovered} Deaths : {this.props.stats.deaths})
         </p>
 
         {/* Covid Cartoon */}
@@ -119,6 +121,7 @@ function mapStateToProps(state) {
   return {
     corona: state.game_reducer.corona,
     gameOver: state.game_reducer.gameOver,
+    stats: state.auth_reducer.stats,
   };
 }
 

@@ -6,3 +6,5 @@ export const LOGOUT = "LOGOUT";
 export const PREVENT = "PREVENT";
 
 export const RESET = "RESET";
+
+export const LOADING = "LOADING";

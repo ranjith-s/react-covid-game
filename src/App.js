@@ -29,7 +29,11 @@ class App extends React.Component {
         {this.props.signedIn ? (
           <Game user={this.props.username} logout={this.logout} />
         ) : (
-          <Login title="Enter your credentials" setSignedIn={this.signIn} />
+          <Login
+            title="Enter your credentials"
+            setSignedIn={this.signIn}
+            loginLoading={this.props.loginLoading}
+          />
         )}
         <Footer
           text={
@@ -47,12 +51,13 @@ function mapStateToProps(state) {
   return {
     signedIn: state.auth_reducer.is_authenticated,
     username: state.auth_reducer.username,
+    loginLoading: state.auth_reducer.loginLoading,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    login: (username) => dispatch(ACTIONS.login(username)),
+    login: (username) => dispatch(ACTIONS.asyncLogin(username)),
     logout: () => dispatch(ACTIONS.logout()),
   };
 }
